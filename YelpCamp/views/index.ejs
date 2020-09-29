@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Campgrounds</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+        <%- include('partials/navbar.ejs') -%>
+    <div class="container">
+    <header class="jumbotron"> 
+            <h1>Welcome to Yelp Camp!</h1> 
+            <p> view our handpicked campground from all over the world! </p>
+            <p><a class="btn btn-primary btn-lg" href="/campgrounds/new"> add new campground</a></p>
+
+    </header>
+ 
+ <div class="row text-center" style="display: flex; flex-wrap:wrap;  ">
+     
+
+
+ 
+    <% campgrounds.forEach(function(campground){ %>
+        <div class="col-md-3 col sm-6">
+            <div class="thumbnail">
+       
+            <img src="<%= campground.image %>" alt="photo of <%= campground.name%>">
+        <div class="action"><h4> <%= campground.name  %></h4> </div>
+        <p>
+            <a href="/campgrounds/<%= campground._id%>" class="btn btn-primary ">more info</a>
+        </p>
+        </div>
+
+ </div>
+        
+   <%  }) %>
+   
+ </div>
+    </div>
+   <%- include('partials/footer.ejs') -%>
+     
+ 
